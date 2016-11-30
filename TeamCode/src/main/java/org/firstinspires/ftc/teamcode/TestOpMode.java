@@ -53,7 +53,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Test Iterative OpMode", group="Test Iterative Opmode")  // @Autonomous(...) is the other common choice
+@TeleOp(name="Motor Test", group="Testing")  // @Autonomous(...) is the other common choice
 //@Disabled
 public class TestOpMode extends OpMode
 {
@@ -62,12 +62,13 @@ public class TestOpMode extends OpMode
 
     // private DcMotor leftMotor = null;
     // private DcMotor rightMotor = null;
-        private DcMotor testMotor = null;
+    private DcMotor testMotor = null;
     /*
      * Code to run ONCE when the driver hits INIT
      */
     @Override
     public void init() {
+
         telemetry.addData("Status", "Initialized");
 
         /* eg: Initialize the hardware variables. Note that the strings used here as parameters
@@ -77,7 +78,7 @@ public class TestOpMode extends OpMode
         // leftMotor  = hardwareMap.dcMotor.get("left_drive");
         // rightMotor = hardwareMap.dcMotor.get("right_drive");
 
-        testMotor = hardwareMap.dcMotor.get("left_drive");
+        testMotor = hardwareMap.dcMotor.get("motor1");
 
         // eg: Set the drive motor directions:
         // Reverse the motor that runs backwards when connected directly to the battery
@@ -86,6 +87,10 @@ public class TestOpMode extends OpMode
         // telemetry.addData("Status", "Initialized");
 
         // testMotor.setDiretion(DcMotor.Direction.FORWARD);
+
+        testMotor.setMaxSpeed(10);
+        testMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
         telemetry.addData("Status", "Initialized");
     }
 
@@ -94,6 +99,9 @@ public class TestOpMode extends OpMode
      */
     @Override
     public void init_loop() {
+
+        testMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        testMotor.setPower(1);
     }
 
     /*
@@ -102,6 +110,7 @@ public class TestOpMode extends OpMode
     @Override
     public void start() {
         runtime.reset();
+        testMotor.setDirection(DcMotorSimple.Direction.FORWARD);
     }
 
     /*
@@ -114,8 +123,8 @@ public class TestOpMode extends OpMode
         // eg: Run wheels in tank mode (note: The joystick goes negative when pushed forwards)
         // leftMotor.setPower(-gamepad1.left_stick_y);
         // rightMotor.setPower(-gamepad1.right_stick_y);
-
-        testMotor.setPower(-gamepad1.left_stick_y);
+        testMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        testMotor.setPower(1);
     }
 
     /*
