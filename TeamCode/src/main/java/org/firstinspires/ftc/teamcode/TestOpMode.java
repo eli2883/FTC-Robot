@@ -110,6 +110,7 @@ public class TestOpMode extends OpMode
     @Override
     public void start() {
         runtime.reset();
+
         testMotor.setDirection(DcMotorSimple.Direction.FORWARD);
     }
 
@@ -133,6 +134,7 @@ public class TestOpMode extends OpMode
     @Override
     public void stop() {
 
+        telemetry.addData("Status", "Stopped ");
 
     }
 
