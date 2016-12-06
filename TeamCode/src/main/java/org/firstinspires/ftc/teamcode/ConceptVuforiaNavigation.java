@@ -30,7 +30,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
 TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-package org.firstinspires.ftc.robotcontroller.external.samples;
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.ftcrobotcontroller.R;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -123,7 +123,7 @@ public class ConceptVuforiaNavigation extends LinearOpMode {
          * {@link Parameters} instance with which you initialize Vuforia.
          */
         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters(R.id.cameraMonitorViewId);
-        parameters.vuforiaLicenseKey = "ATsODcD/////AAAAAVw2lR...d45oGpdljdOh5LuFB9nDNfckoxb8COxKSFX";
+        parameters.vuforiaLicenseKey = "ARYoyLL/////AAAAGSM+eIPgBkVkj77SNANYLYsw+k8F7ZPzcbNogxlR5MygBD2eTeUTcHNu6rtmqlqEsh5xsOgOcQUUhHu4JSVo0rrUK5UkJPYoADAb2TN3+9NK1eQC2KqU+czJHkd/9kJRk08uCEoMpyOK3YzsZA2dhdYBsNwnDOlYglWj9JqWp9g/XEdKNixt9xVfPdAhjzrc39HI+SuuXKJwq3Rz08jLoKMwy6aHpRB5SqH/zdCDi2Evb5X+xmPWXIC1DOWasrVXSZN1G7tkfMQckTl+9lpOnifwxCj7BQfVtcIv74qtStsKIyWh8Dowl94RkZjRZHpZ5FK/K5WgELVYfUuRf/935a5YJ6GGq1Uc7PovCBtMhvKP";
         parameters.cameraDirection = VuforiaLocalizer.CameraDirection.BACK;
         this.vuforia = ClassFactory.createVuforiaLocalizer(parameters);
 

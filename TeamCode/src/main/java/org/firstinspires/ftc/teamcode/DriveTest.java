@@ -58,9 +58,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Auto Drive by time", group="Robot")
+@Autonomous(name="Test Drive", group="Robot")
 //@Disabled
-public class BotDriveByTime extends LinearOpMode {
+public class DriveTest extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareRobot         robot   = new HardwareRobot();
@@ -99,14 +99,23 @@ public class BotDriveByTime extends LinearOpMode {
             telemetry.update();
         }
         */
-
+        robot.testMotor.setPower(1);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 10.0))
+        {
+            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+        /*
         robot.testMotor.setPower(FORWARD_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 3.0)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
+        */
 
+        /*
         // Step 2:  Spin right for 1.3 seconds
         robot.leftMotor.setPower(TURN_SPEED);
         robot.rightMotor.setPower(-TURN_SPEED);
@@ -115,7 +124,9 @@ public class BotDriveByTime extends LinearOpMode {
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
+        */
 
+        /*
         // Step 3:  Drive Backwards for 1 Second
         robot.leftMotor.setPower(-FORWARD_SPEED);
         robot.rightMotor.setPower(-FORWARD_SPEED);
@@ -124,7 +135,9 @@ public class BotDriveByTime extends LinearOpMode {
             telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
+        */
 
+        /*
         // Step 4:  Stop and close the claw.
         robot.leftMotor.setPower(0);
         robot.rightMotor.setPower(0);
@@ -134,5 +147,12 @@ public class BotDriveByTime extends LinearOpMode {
         telemetry.addData("Path", "Complete");
         telemetry.update();
         sleep(1000);
+        */
+
+        robot.testMotor.setPower(0);
+        telemetry.addData("Path", "Complete");
+        telemetry.update();
+        sleep(2000);
+
     }
 }
